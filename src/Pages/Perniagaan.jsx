@@ -74,7 +74,7 @@ const Perniagaan = () => {
                   {jumlahZakat.toFixed(2)} <br />{" "}
                 </div>
               </label>
-              {zakatNeed}
+              <div className="font-extralight">{zakatNeed}</div>
             </div>
           </form>
         </div>

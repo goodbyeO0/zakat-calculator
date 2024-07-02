@@ -1,6 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Emas = () => {
+  const hargaEmas = 284.69;
+  const [jenis, setJenis] = useState("pakai");
+  const [jumlahZakat, setJumlahZakat] = useState(0.0);
+  const [nilaiUruf, setNilaiUruf] = useState(800);
+  const [beratEmas, setBeratEmas] = useState(0.0);
+  const [perluZakat, setPerluZakat] = useState("");
+  const [zakat, setZakat] = useState(0.0);
+  const [nilai, setNilai] = useState(0.0);
+
+  useEffect(() => {
+    if (jenis === "pakai") {
+      setNilaiUruf(800);
+    } else {
+      setNilaiUruf(85);
+    }
+  }, [jenis]);
+
+  useEffect(() => {
+    const zakatCounter = (beratEmas / 1000) * hargaEmas * 0.025;
+    setZakat(zakatCounter);
+    if (beratEmas < nilaiUruf) {
+      setPerluZakat("Tidak perlu membayar zakat");
+      setZakat(0);
+    } else {
+      setPerluZakat("");
+    }
+  }, [beratEmas, nilaiUruf]);
+
+  useEffect(() => {
+    setNilai((beratEmas / 1000) * hargaEmas);
+  }, [beratEmas]);
   return (
     <div className="flex flex-col space-y-4 items-center justify-center h-screen">
       <div className="w-64 border-2 border-black shadow-2xl p-5">
@@ -10,10 +41,10 @@ const Emas = () => {
 
         <div className="flex flex-row items-center font-extralight ">
           <p className="flex-1">Nilai Uruf</p>
-          <p className="flex-none ml-4">800 gram</p>
+          <p className="flex-none ml-4">{nilaiUruf} gram</p>
         </div>
         <div className="flex flex-row items-center font-extralight ">
-          <p className="flex-1">Harga Emas</p>
+          <p className="flex-1">Harga Emas (per/kg)</p>
           <p className="flex-none ml-4">284.69</p>
         </div>
 
@@ -25,26 +56,43 @@ const Emas = () => {
                 <select
                   id="jenis"
                   name="jenis"
+                  value={jenis}
+                  onChange={(e) => setJenis(e.target.value)}
                   className="block w-full mt-1 border-2 border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                 >
-                  <option value="volvo">Pakai</option>
-                  <option value="saab">Simpan</option>
+                  <option value="pakai">Pakai</option>
+                  <option value="simpan">Simpan</option>
                 </select>
               </div>
             </div>
             <div className="hasil mt-2">
-              <label htmlFor="hasil">Jumlah Emas: </label>
+              <label htmlFor="hasil">Berat Emas (gram): </label>
               <div className="border-2 ">
-                <input type="number" id="hasil" />
+                <input
+                  type="number"
+                  id="hasil"
+                  value={beratEmas}
+                  onChange={(e) => setBeratEmas(e.target.value)}
+                />
                 <br />
               </div>
             </div>
-            <div className="kos mt-2">
-              <label htmlFor="kos">Harga Emas: </label>
-              <div className="border-2 ">
-                <input type="number" id="kos" />
-                <br />
-              </div>
+            <div className="mt-2">
+              <label>
+                Nilai Emas :
+                <div className="font-bold">
+                  RM{nilai.toFixed(2)} <br />{" "}
+                </div>
+              </label>
+            </div>
+            <div className="mt-2">
+              <label>
+                Jumlah Zakat:
+                <div className="font-bold">
+                  RM{zakat.toFixed(2)} <br />{" "}
+                </div>
+              </label>
+              <div className="font-extralight">{perluZakat}</div>
             </div>
           </form>
         </div>
