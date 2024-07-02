@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-import Calculator from "./Pages/Calculator";
 import Perniagaan from "./Pages/Perniagaan";
 import Pendapatan from "./Pages/Pendapatan";
 import Emas from "./Pages/Emas";
