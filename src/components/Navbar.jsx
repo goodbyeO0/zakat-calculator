@@ -5,6 +5,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 function Navbar() {
     const [showDropdown, setShowDropdown] = useState(false);
 
+
     // Inline style for cursor change
     const linkStyle = {
         cursor: 'pointer',
