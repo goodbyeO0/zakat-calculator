@@ -1,24 +1,32 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-import Calculator from "./Pages/Calculator";
 import Perniagaan from "./Pages/Perniagaan";
-import Navbar from "./components/Navbar";
+import Pendapatan from "./Pages/Pendapatan";
 import Emas from "./Pages/Emas";
+import WangSimpanan from "./Pages/WangSimpanan";
+import Navbar from "./components/Navbar";
+import UserContextProvider from "./context/UserContextProvider";
+
 
 function App() {
   return (
     <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/calculator" element={<Calculator />} />
-          <Route path="/perniagaan" element={<Perniagaan />} />
-          <Route path="/emas" element={<Emas />} />
-        </Routes>
-      </Router>
+
+      <UserContextProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/perniagaan" element={<Perniagaan />} />
+            <Route path="/pendapatan" element={<Pendapatan />} />
+            <Route path="/emas" element={<Emas />} />
+            <Route path="/wangSimpanan" element={<WangSimpanan />} />
+          </Routes>
+        </Router>
+      </UserContextProvider >
+
     </>
   );
 }

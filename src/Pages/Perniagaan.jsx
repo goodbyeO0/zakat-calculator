@@ -2,16 +2,19 @@ import "../components/perniagaan.css";
 import { useState, useEffect } from "react";
 
 const Perniagaan = () => {
+
   const [hasil, setHasil] = useState(0.0);
   const [kos, setKos] = useState(0.0);
   const [untungBersih, setUntungBersih] = useState(0.0);
   const [jumlahZakat, setJumlahZakat] = useState(0.0);
   const [zakatNeed, setZakatNeed] = useState("");
 
-  useEffect(() => {
-    const untungBersih = hasil - kos;
-    setUntungBersih(untungBersih);
-  }, [hasil, kos]);
+
+    useEffect(() => {
+        const untungBersih = hasil - kos;
+        setUntungBersih(untungBersih);
+    }, [hasil, kos]);
+
 
   useEffect(() => {
     var zakat = untungBersih * 0.025;
@@ -81,6 +84,7 @@ const Perniagaan = () => {
       </div>
     </div>
   );
+
 };
 
 export default Perniagaan;
