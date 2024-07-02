@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 const Pendapatan = () => {
@@ -95,3 +96,4 @@ const Pendapatan = () => {
 };
 
 export default Pendapatan;
+
