@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 const Emas = () => {
   const hargaEmas = 284.69;
   const [jenis, setJenis] = useState("pakai");
-  const [jumlahZakat, setJumlahZakat] = useState(0.0);
   const [nilaiUruf, setNilaiUruf] = useState(800);
   const [beratEmas, setBeratEmas] = useState(0.0);
   const [perluZakat, setPerluZakat] = useState("");
@@ -102,5 +101,3 @@ const Emas = () => {
 };
 
 export default Emas;
-
-
