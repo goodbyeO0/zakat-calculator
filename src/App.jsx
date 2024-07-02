@@ -6,21 +6,26 @@ import Pendapatan from "./Pages/Pendapatan";
 import Emas from "./Pages/Emas";
 import WangSimpanan from "./Pages/WangSimpanan";
 import Navbar from "./components/Navbar";
+import UserContextProvider from "./context/UserContextProvider";
+import Test from "./Pages/Test";
 
 function App() {
   return (
     <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/perniagaan" element={<Perniagaan />} />
-          <Route path="/pendapatan" element={<Pendapatan />} />
-          <Route path="/emas" element={<Emas />} />
-          <Route path="/wangSimpanan" element={<WangSimpanan />} />
-        </Routes>
-      </Router>
+      <UserContextProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/perniagaan" element={<Perniagaan />} />
+            <Route path="/pendapatan" element={<Pendapatan />} />
+            <Route path="/emas" element={<Emas />} />
+            <Route path="/wangSimpanan" element={<WangSimpanan />} />
+            <Route path="/test" element={<Test />} />
+          </Routes>
+        </Router>
+      </UserContextProvider >
     </>
   );
 }

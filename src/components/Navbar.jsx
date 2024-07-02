@@ -1,10 +1,25 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MdKeyboardArrowDown } from "react-icons/md";
+import UserContext from '../context/UserContext';
+import { useContext } from 'react';
+import { CiLight } from "react-icons/ci";
+import { MdDarkMode } from "react-icons/md";
+import { FaHandsHelping } from "react-icons/fa";
 
 
 function Navbar() {
     const [showDropdown, setShowDropdown] = useState(false);
+    const { dark, setDark } = useContext(UserContext);
+
+    const toggleDarkMode = () => {
+        setDark(!dark); // Toggle the dark mode state
+    };
+
+    const iconTransitionStyle = {
+        transition: 'transform 0.3s ease-in-out',
+        transform: dark ? 'rotate(180deg)' : 'rotate(0deg)',
+    };
 
 
     // Inline style for cursor change
@@ -17,9 +32,9 @@ function Navbar() {
 
     return (
         <>
-            <div className='flex justify-center min-w-full bg-[#FAFAFC] container'>
-                <div className='font-semibold w-3/4 min-h-16 text-[#4B4B4B] flex justify-evenly items-center'>
-                    <img src={"./src/assets/zakatIcon.webp"} alt="Zakat Icon" className='w-10 h-10' />
+            <div className={`flex justify-center min-w-full ${dark ? 'bg-[#000000]' : 'bg-[#FAFAFC]'} container`}>
+                <div className={`font-semibold w-3/4 min-h-16 ${dark ? 'text-[#FAFAFC]' : 'text-[#1F1F1F]'} flex justify-evenly items-center`}>
+                    <FaHandsHelping size={30} />
                     <Link to={"/"} style={linkStyle}>Home</Link>
                     <Link to={"/about"} style={linkStyle}>Tentang Kami</Link>
                     <div onClick={() => setShowDropdown(!showDropdown)} className="relative" style={linkStyle}>
@@ -35,6 +50,10 @@ function Navbar() {
                             </div>
                         )}
                     </div>
+
+                    <button onClick={toggleDarkMode} className="flex items-center justify-center p-2 ${dark ? 'bg-[#1F1F1F]' : 'bg-[#FAFAFC]'}] ">
+                        {dark ? <MdDarkMode size={30} style={iconTransitionStyle} /> : <CiLight size={30} style={iconTransitionStyle} />}
+                    </button>
                 </div>
             </div>
         </>
