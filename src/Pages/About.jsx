@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom"
+
+import Navbar from "../components/Navbar"
 
 function About() {
     return (
         <>
-            <div className=" text-6xl">Abouttt</div>
-            <Link to="/">Home</Link>
+            <Navbar />
         </>
     )
 }
