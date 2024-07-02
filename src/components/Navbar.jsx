@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MdKeyboardArrowDown } from "react-icons/md";
 
+
 function Navbar() {
     const [showDropdown, setShowDropdown] = useState(false);
 
@@ -20,7 +21,7 @@ function Navbar() {
                 <div className='font-semibold w-3/4 min-h-16 text-[#4B4B4B] flex justify-evenly items-center'>
                     <img src={"./src/assets/zakatIcon.webp"} alt="Zakat Icon" className='w-10 h-10' />
                     <Link to={"/"} style={linkStyle}>Home</Link>
-                    <Link to={"/about"} style={linkStyle}>About Us</Link>
+                    <Link to={"/about"} style={linkStyle}>Tentang Kami</Link>
                     <div onClick={() => setShowDropdown(!showDropdown)} className="relative" style={linkStyle}>
                         <div className='flex items-center gap-1'>
                             Calculators <MdKeyboardArrowDown className='mt-1' style={iconStyle} />
