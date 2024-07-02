@@ -40,7 +40,7 @@ const Perniagaan = () => {
           <form>
             <div className="hasil mt-2">
               <label htmlFor="hasil">Hasil: </label>
-              <div className="border-2">
+              <div className="border-2 ">
                 <input
                   type="number"
                   id="hasil"
@@ -52,7 +52,7 @@ const Perniagaan = () => {
             </div>
             <div className="kos mt-2">
               <label htmlFor="kos">Kos: </label>
-              <div className="border-2">
+              <div className="border-2 ">
                 <input
                   type="number"
                   id="kos"

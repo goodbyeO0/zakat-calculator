@@ -34,14 +34,14 @@ const Emas = () => {
             </div>
             <div className="hasil mt-2">
               <label htmlFor="hasil">Jumlah Emas: </label>
-              <div className="border-2">
+              <div className="border-2 ">
                 <input type="number" id="hasil" />
                 <br />
               </div>
             </div>
             <div className="kos mt-2">
               <label htmlFor="kos">Harga Emas: </label>
-              <div className="border-2">
+              <div className="border-2 ">
                 <input type="number" id="kos" />
                 <br />
               </div>
