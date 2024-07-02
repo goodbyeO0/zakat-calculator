@@ -5,10 +5,10 @@ import UserContext from "../context/UserContext";
 
 
 function Home() {
-    const { dark, setDark } = useContext(UserContext);
+    const { dark } = useContext(UserContext);
     return (
         <>
-            <div className={`bg-[#F5F5F7] h-screen w-full m-0 p-0 ${dark ? 'bg-[#121212]' : 'bg-[#F5F5F7]'}`}>
+            <div className={`h-screen w-full m-0 p-0 ${dark ? 'bg-[#121212]' : 'bg-[#F5F5F7]'}`}>
                 <Cards />
             </div>
         </>

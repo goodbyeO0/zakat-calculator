@@ -7,7 +7,6 @@ import Emas from "./Pages/Emas";
 import WangSimpanan from "./Pages/WangSimpanan";
 import Navbar from "./components/Navbar";
 import UserContextProvider from "./context/UserContextProvider";
-import Test from "./Pages/Test";
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
             <Route path="/pendapatan" element={<Pendapatan />} />
             <Route path="/emas" element={<Emas />} />
             <Route path="/wangSimpanan" element={<WangSimpanan />} />
-            <Route path="/test" element={<Test />} />
           </Routes>
         </Router>
       </UserContextProvider >
