@@ -8,11 +8,9 @@ import WangSimpanan from "./Pages/WangSimpanan";
 import Navbar from "./components/Navbar";
 import UserContextProvider from "./context/UserContextProvider";
 
-
 function App() {
   return (
     <>
-
       <UserContextProvider>
         <Router>
           <Navbar />
@@ -25,8 +23,7 @@ function App() {
             <Route path="/wangSimpanan" element={<WangSimpanan />} />
           </Routes>
         </Router>
-      </UserContextProvider >
-
+      </UserContextProvider>
     </>
   );
 }

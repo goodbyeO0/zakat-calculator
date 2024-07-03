@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import UserContext from "../context/UserContext";
 
 const Emas = () => {
+  const { dark } = useContext(UserContext);
   const hargaEmas = 284.69;
   const [jenis, setJenis] = useState("pakai");
   const [nilaiUruf, setNilaiUruf] = useState(800);
@@ -31,8 +33,17 @@ const Emas = () => {
   useEffect(() => {
     setNilai((beratEmas / 1000) * hargaEmas);
   }, [beratEmas]);
+
+  // Define dark and light mode classes
+  const darkModeClasses = "bg-gray-800 text-white";
+  const lightModeClasses = "bg-white text-black";
+
   return (
-    <div className="flex flex-col space-y-4 items-center justify-center h-screen">
+    <div
+      className={`flex flex-col space-y-4 items-center justify-center h-screen ${
+        dark ? darkModeClasses : lightModeClasses
+      }`}
+    >
       <div className="w-64 border-2 border-black shadow-2xl p-5">
         <div className="flex justify-center items-center font-bold">
           <h1>Zakat Emas 2024</h1>
@@ -57,7 +68,11 @@ const Emas = () => {
                   name="jenis"
                   value={jenis}
                   onChange={(e) => setJenis(e.target.value)}
-                  className="block w-full mt-1 border-2 border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                  className={`block w-full mt-1 border-2 ${
+                    dark
+                      ? "border-gray-700 bg-gray-700 text-white"
+                      : "border-gray-300 bg-white text-black"
+                  } py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm`}
                 >
                   <option value="pakai">Pakai</option>
                   <option value="simpan">Simpan</option>
@@ -66,12 +81,19 @@ const Emas = () => {
             </div>
             <div className="hasil mt-2">
               <label htmlFor="hasil">Berat Emas (gram): </label>
-              <div className="border-2 ">
+              <div
+                className={`border-2 ${
+                  dark ? "bg-gray-700 text-white" : "bg-white text-black"
+                }`}
+              >
                 <input
                   type="number"
                   id="hasil"
                   value={beratEmas}
                   onChange={(e) => setBeratEmas(e.target.value)}
+                  className={`${
+                    dark ? "bg-gray-700 text-white" : "bg-white text-black"
+                  }`}
                 />
                 <br />
               </div>
