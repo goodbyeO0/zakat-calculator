@@ -1,7 +1,9 @@
-
 import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import UserContext from '../context/UserContext';
 
 const Pendapatan = () => {
+    const { dark } = useContext(UserContext);
     const [income, setIncome] = useState(0);
     const [extraIncome, setExtraIncome] = useState(0);
     const [netIncome, setNetIncome] = useState(0);
@@ -31,14 +33,15 @@ const Pendapatan = () => {
             align-items: center;
             height: 100vh;
             flex-direction: column;
-            background-color: #fff;
-            max-width: 600px; /* Adjust the width of the border */
-            height: 400px; /* Adjust the height of the border */
+            background-color: ${dark ? '#121212' : '#FFF'};
+            color: ${dark ? '#FFF' : '#000'};
+            max-width: 600px;
+            height: 400px;
             margin: auto;
-            padding: 20px; /* Added padding inside the border */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the floating effect */
-            border-radius: 8px; /* Rounded corners */
-            border: 1px solid #ddd; /* Border around the entire content */
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 1px solid #ddd;
           }
 
           table {
@@ -49,6 +52,8 @@ const Pendapatan = () => {
           td {
             border: 1px solid #ddd;
             padding: 8px;
+            background-color: ${dark ? '#1E1E1E' : '#FFF'};
+            color: ${dark ? '#FFF' : '#000'};
           }
 
           h2 {
@@ -96,4 +101,3 @@ const Pendapatan = () => {
 };
 
 export default Pendapatan;
-

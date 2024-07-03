@@ -12,6 +12,7 @@ function Navbar() {
     const [showDropdown, setShowDropdown] = useState(false);
     const { dark, setDark } = useContext(UserContext);
 
+
     const toggleDarkMode = () => {
         setDark(!dark); // Toggle the dark mode state
     };
@@ -42,11 +43,11 @@ function Navbar() {
                             Kalkulator <MdKeyboardArrowDown className='mt-1' style={iconStyle} />
                         </div>
                         {showDropdown && (
-                            <div className={`absolute w-48 py-2 mt-2  border bg-[#121212] rounded-md shadow-xl top-full ${dark ? ' bg-[#000000]' : ' bg-[#FAFAFC]'}`}>
-                                <Link to={"/perniagaan"} className={`block px-4 py-2 text-sm ${dark ? 'text-[#FAFAFC] bg-[#000000]' : 'text-[#1F1F1F] bg-[#FAFAFC]'}`} style={linkStyle}>Zakat Perniagaan</Link>
-                                <Link to={"/pendapatan"} className={`block px-4 py-2 text-sm ${dark ? 'text-[#FAFAFC] bg-[#000000]' : 'text-[#1F1F1F] bg-[#FAFAFC]'}`} style={linkStyle}>Zakat Pendapatan</Link>
-                                <Link to={"/emas"} className={`block px-4 py-2 text-sm ${dark ? 'text-[#FAFAFC] bg-[#000000]' : 'text-[#1F1F1F] bg-[#FAFAFC]'}`} style={linkStyle}>Zakat Emas</Link>
-                                <Link to={"/wangSimpanan"} className={`block px-4 py-2 text-sm ${dark ? 'text-[#FAFAFC] bg-[#000000]' : 'text-[#1F1F1F] bg-[#FAFAFC]'}`} style={linkStyle}>Zakat Wang Simpanan</Link>
+                            <div className={`absolute w-48 py-2 mt-2  border bg-[#000000] rounded-md shadow-xl top-full ${dark ? ' bg-[#000000]' : ' bg-[#FAFAFC]'}`}>
+                                <Link to={"/perniagaan"} className={`block px-4 py-2 text-sm ${dark ? 'text-[#FAFAFC] bg-[#000000] hover:bg-[#121212]' : 'text-[#1F1F1F] bg-[#FAFAFC] hover:bg-[#e8e8e8]'}`} style={linkStyle}>Zakat Perniagaan</Link>
+                                <Link to={"/pendapatan"} className={`block px-4 py-2 text-sm ${dark ? 'text-[#FAFAFC] bg-[#000000] hover:bg-[#121212]' : 'text-[#1F1F1F] bg-[#FAFAFC] hover:bg-[#e8e8e8]'}`} style={linkStyle}>Zakat Pendapatan</Link>
+                                <Link to={"/emas"} className={`block px-4 py-2 text-sm ${dark ? 'text-[#FAFAFC] bg-[#000000] hover:bg-[#121212]' : 'text-[#1F1F1F] bg-[#FAFAFC] hover:bg-[#e8e8e8]'}`} style={linkStyle}>Zakat Emas</Link>
+                                <Link to={"/wangSimpanan"} className={`block px-4 py-2 text-sm ${dark ? 'text-[#FAFAFC] bg-[#000000] hover:bg-[#121212]' : 'text-[#1F1F1F] bg-[#FAFAFC] hover:bg-[#e8e8e8]'}`} style={linkStyle}>Zakat Wang Simpanan</Link>
                             </div>
                         )}
                     </div>
