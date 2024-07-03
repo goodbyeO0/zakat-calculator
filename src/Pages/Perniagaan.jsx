@@ -1,20 +1,18 @@
-import "../components/perniagaan.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import UserContext from "../context/UserContext";
 
 const Perniagaan = () => {
-
+  const { dark } = useContext(UserContext);
   const [hasil, setHasil] = useState(0.0);
   const [kos, setKos] = useState(0.0);
   const [untungBersih, setUntungBersih] = useState(0.0);
   const [jumlahZakat, setJumlahZakat] = useState(0.0);
   const [zakatNeed, setZakatNeed] = useState("");
 
-
-    useEffect(() => {
-        const untungBersih = hasil - kos;
-        setUntungBersih(untungBersih);
-    }, [hasil, kos]);
-
+  useEffect(() => {
+    const untungBersih = hasil - kos;
+    setUntungBersih(untungBersih);
+  }, [hasil, kos]);
 
   useEffect(() => {
     var zakat = untungBersih * 0.025;
@@ -27,9 +25,19 @@ const Perniagaan = () => {
     setJumlahZakat(zakat);
   }, [untungBersih]);
 
+  // Conditional styling based on dark mode
+  const containerStyle = dark
+    ? "bg-gray-800 text-white"
+    : "bg-white text-black";
+  const formBorderStyle = dark ? "border-white" : "border-black";
+
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="perniagaan w-64  border-2 border-black shadow-2xl p-5">
+    <div
+      className={`flex justify-center items-center h-screen ${containerStyle}`}
+    >
+      <div
+        className={`perniagaan w-64 border-2 ${formBorderStyle} shadow-2xl p-5`}
+      >
         <div className="flex justify-center items-center font-bold">
           <h1>Zakat Perniagaan 2024</h1>
         </div>
@@ -43,30 +51,36 @@ const Perniagaan = () => {
           <form>
             <div className="hasil mt-2">
               <label htmlFor="hasil">Hasil: </label>
-              <div className="border-2 ">
+              <div className={`border-2 ${formBorderStyle}`}>
                 <input
                   type="number"
                   id="hasil"
                   value={hasil}
                   onChange={(e) => setHasil(e.target.value)}
+                  className={`${
+                    dark ? "text-white bg-gray-800" : "text-black bg-white"
+                  }`}
                 />
                 <br />
               </div>
             </div>
             <div className="kos mt-2">
               <label htmlFor="kos">Kos: </label>
-              <div className="border-2 ">
+              <div className={`border-2 ${formBorderStyle}`}>
                 <input
                   type="number"
                   id="kos"
                   value={kos}
                   onChange={(e) => setKos(e.target.value)}
+                  className={`${
+                    dark ? "text-white bg-gray-800" : "text-black bg-white"
+                  }`}
                 />
               </div>
             </div>
             <div className="mt-2">
               <label>
-                Untung Bersih:{" "}
+                Untung Bersih:
                 <div className="font-bold">{untungBersih.toFixed(2)}</div>
               </label>
             </div>
@@ -74,7 +88,7 @@ const Perniagaan = () => {
               <label>
                 Jumlah Zakat:
                 <div className="font-bold">
-                  {jumlahZakat.toFixed(2)} <br />{" "}
+                  {jumlahZakat.toFixed(2)} <br />
                 </div>
               </label>
               <div className="font-extralight">{zakatNeed}</div>
@@ -84,7 +98,6 @@ const Perniagaan = () => {
       </div>
     </div>
   );
-
 };
 
 export default Perniagaan;
