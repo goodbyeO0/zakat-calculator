@@ -12,8 +12,8 @@ Group members -
 ## How to use
 
 1. download (.zip or git clone)
-2. run npm install at terminal (project directory) to install all dependencies
-3. run command npm run dev - to run this project using vite
+2. run -> (npm install) at terminal @ project directory to install all dependencies
+3. run command -> (npm run dev) - to run this project using vite
 4. open the port ex: http://localhost:5173/
 
 ##
